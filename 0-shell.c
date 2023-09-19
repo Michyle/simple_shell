@@ -14,7 +14,7 @@ int main() {
     char *token;
     pid_t pid;
     char *args[MAX_INPUT_SIZE];
-    int arg_count;
+    int arg_count = 0;
 
     while (1) {
         write(STDOUT_FILENO, "cisfun$ ", 8);
@@ -29,10 +29,8 @@ int main() {
 
         input[strcspn(input, "\n")] = '\0';
 
-        
-      	arg_count = 0;
-
-        token = strtok(input, " ");
+    
+	token = strtok(input, " ");
         while (token != NULL) {
             args[arg_count++] = token;
             token = strtok(NULL, " ");
@@ -40,7 +38,11 @@ int main() {
         args[arg_count] = NULL;
 
         if (arg_count == 0) {
-            continue; 
+            continue;
+        }
+
+        if (strcmp(args[0], "exit") == 0) {
+            exit_builtin(); 
         }
 
         pid = fork();
@@ -64,3 +66,4 @@ int main() {
 
     return 0;
 }
+
