@@ -2,9 +2,9 @@
 
 /**
  * compare_strings - A funtion that compares two strings
- * @strng1: string 1
- * @strng2: string 2
- * Return: 1 if strings are the same, 0 if not
+ * @strng1: The first string.
+ * @strng2: The second string
+ * Return: 1 if the strings are the same or 0 if not
  */
 int compare_strings(char *strng1, char *strng2)
 {
@@ -22,8 +22,8 @@ int compare_strings(char *strng1, char *strng2)
 
 
 /**
- * string_length - A function that finds the length of the string
- * @s: The input string
+ * string_length - this will find the length of the string
+ * @strng: The input string
  * Return: The length of the string
  */
 unsigned int string_length(char *strng)
@@ -75,8 +75,8 @@ char *concatenate_strings(char *destination, char *source)
 
 
 /**
- * string_to_int - a function that converts string to integer.
- * @s: An input string.
+ * string_to_int - a function that will convert string to integer.
+ * @strng: this is an input string.
  * Return: integer from conversion.
  */
 int string_to_int(char *strng)

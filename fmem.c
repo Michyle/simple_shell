@@ -5,7 +5,7 @@
  * @command: The pointer to allocated memory to free.
  * Return: Nothing.
  */
-void _pd(char **command)
+void _dp(char **command)
 {
 	size_t i = 0;
 
