@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
- * Fibonacci - This will generate the sequence up to n
+ * fibonacci - This will generate the sequence up to n
  *
  * @n: The number of Fibonacci numbers to generate
  *
@@ -10,7 +10,7 @@
 void fibonacci(int n)
 {
 	int i, first = 0, second = 1 , next;
-	
+
 	for (i = 0; i < n; i++)
 	{
 		if (i <=1)
