@@ -1,4 +1,7 @@
-#include <shell.h>
+#include <stdio.h>
+#include <unistd.h>
+
+#define BUFFER_SIZE 1024
 
 /**
  * get_line - This will read a line from standard input

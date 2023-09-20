@@ -85,15 +85,4 @@ int main()
 
 	return 0;
 
-
-/**
- * @env_variable: gets the enviroment value
- */
-
-int main(int argc, char* argv[])
-{
-	char* env_variable = getenv("PATH");
-	printf("Path = %s\n\n, env_variable");
-	return 0;
-}
 }
