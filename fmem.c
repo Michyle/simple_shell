@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * _dp - A function that frees all the memory allocated for command.
+ * _pd - A function that frees all the memory allocated for command.
  * @command: The pointer to allocated memory to free.
  * Return: Nothing.
  */
-void _dp(char **command)
+void _pd(char **command)
 {
 	size_t i = 0;
 
