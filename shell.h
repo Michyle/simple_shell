@@ -1,29 +1,34 @@
-#ifndef SHELL_H
-#define SHELL_H
-
-#include <stdio.h>
+#ifndef _SHELL_H_
+#define _SHELL_H_
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/wait.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <unistd.h>
 #include <string.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <sys/stat.h>
-#include <limits.h>
-#include <fcntl.h>
-#include <errno.h>
 
-/**
- *shell.h - Header file for a simple shell program.
- *
- *This header file contains declarations for functions and symbols used
- *in a simple shell program.
- */
+int main(int ac, char **av, char **env);
+void prompt(void);
+void handle(int signals);
+void end_of_file(char *buffer);
+void shell_exit(char **command);
 
-void execute_command(const char *command);
-ssize_t read_command(char *buffer, size_t size);
-extern void exit_builtin();
+void child_process(char **command, char *name, char **env, int cicles);
+int ch_pwd(const char *path);
+void _exec(char **command, char *name, char **env, int cicles);
+void print_env(char **env);
+char **_getPATH(char **env);
+void msgerror(char *name, int cicles, char **command);
+char **tokenizing(char *buffer, const char *s);
+void _pd(char **command);
+void exit_free(char **command);
+int compare_strings(char *s1, char *s2);
+unsigned int string_length(char *s);
+char *copy_string(char *dest, char *src);
+int string_to_int(char *s);
+char *concatenate_strings(char *dest, char *src);
 
-#define BUFFER_SIZE 1024
 
-#endif
 
+#endif /* _SHELL_H_ */
