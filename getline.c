@@ -45,22 +45,3 @@ char *get_line(void)
 	}
 }
 
-int main(void)
-{
-	char *line;
-
-	while (1) 
-	{
-		printf("$ ");
-		line = get_line();
-		if (line == NULL)
-		{
-			printf("\n ");
-			break;
-		}
-		printf("You entered: %s\n", line);
-		free(line);
-	}
-
-	return 0;
-}
