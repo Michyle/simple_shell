@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 #define BUFFER_SIZE 1024
 
@@ -27,12 +28,6 @@ char *get_line(void)
 			{
 				return NULL;
 			}
-			else
-				if (size < 0)
-				{
-					perror("read");
-					exit(EXIT_FAILURE);
-				}
 			position = 0;
 		}
 		if (buffer[position] == '\n' || buffer[position] == '\0')
@@ -44,9 +39,9 @@ char *get_line(void)
 			}
 			exit(EXIT_FAILURE);
 		}
-		len++
+		len++;
 
-		position++
+		position++;
 	}
 }
 
@@ -56,12 +51,12 @@ int main(void)
 
 	while (1) 
 	{
-		print("$ ");
+		printf("$ ");
 		line = get_line();
 		if (line == NULL)
 		{
-			printf("\n");
-			break
+			printf("\n ");
+			break;
 		}
 		printf("You entered: %s\n", line);
 		free(line);
