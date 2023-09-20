@@ -3,7 +3,12 @@
 #include <string.h>
 #include "shell.h"
 
-void exit_builtin() {
-    exit(0); 
+/**
+ *exit_builtin - Exit the shell.
+ *
+ *This function is used to exit the shell program gracefully.
+ */
+void exit_builtin()
+{
+	exit(0);
 }
-

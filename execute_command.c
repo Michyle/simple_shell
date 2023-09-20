@@ -7,30 +7,42 @@
 #include <signal.h>
 #include "shell.h"
 
-void execute_command(const char *command) {
-    pid_t pid;
-    int status;
+/**
+ *execute_command - Execute a command in a child process.
+ *@command: The command to execute.
+ */
+void execute_command(const char *command)
+{
+	pid_t pid;
+	int status;
 
-   
-    pid = fork();
+	pid = fork();
 
-    if (pid == 0) { 
-       
-        char *args[2]; 
-        args[0] = strdup(command); 
-        args[1] = NULL; 
-       
-        if (execve(command, args, NULL) == -1) {
-            perror("execve");
-            free(args[0]); 
-            _exit(EXIT_FAILURE);
-        }
-    } else if (pid < 0) { 
-        perror("fork");
-    } else {  
-        do {
-            
-        } while (!WIFEXITED(status) && !WIFSIGNALED(status));
-    }
+	if (pid == 0)
+	{
+		char *args[2];
+		args[0] = strdup(command);
+		args[1] = NULL;
+
+		if (execve(command, args, NULL) == -1)
+		{
+			perror("execve");
+			free(args[0]);
+			_exit(EXIT_FAILURE);
+		}
+	}
+	else if (pid < 0)
+	{
+		perror("fork");
+	}
+	else
+	{
+		do 
+		{
+			
+			waitpid(pid, &status, 0);
+
+		}
+	       	while (!WIFEXITED(status) && !WIFSIGNALED(status));
+	}
 }
-

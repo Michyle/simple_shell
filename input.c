@@ -6,9 +6,17 @@
 #include <signal.h>
 #include "shell.h"
 #include <string.h>
-ssize_t read_command(char *buffer, size_t size) {
-    ssize_t bytes_read;
-    bytes_read = read(STDIN_FILENO, buffer, size);
-    return bytes_read;
-}
 
+/**
+ *read_command - Read a command from standard input.
+ *@buffer: Buffer to store the command.
+ *@size: Size of the buffer.
+ *
+ *Return: Number of bytes read or -1 on error.
+ */
+ssize_t read_command(char *buffer, size_t size)
+{
+	ssize_t bytes_read;
+	bytes_read = read(STDIN_FILENO, buffer, size);
+	return bytes_read;
+}
